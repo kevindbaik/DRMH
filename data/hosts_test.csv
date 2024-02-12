@@ -1,0 +1,5 @@
+id,last_name,email,phone,address,city,state,postal_code,standard_rate,weekend_rate
+3zzzz6bc-ab95-49a8-8962-d50b53f84333,Tester,test1@example.com,(111) 1183815,1 Test Rd,Amarillo,TX,79182,340,425
+azzzz1e7-4fde-4e4a-bdb7-f047f1561333,TesterTwo,test2@example.com,(222) 2275991,2 Test Avenue,Macon,GA,31296,295,368.75
+bzzzz829-c663-48fc-8bf3-7fca47a7a333,TesterThree,test3@amazon.co.jp,(333) 3390895,3 Test Parkway,North Little Rock,AR,72118,451,563.75
+9d469342-ad0b-4f5a-8d28-e81e690ba29a,TestHost,testhost@hotst.com,(444) 2930495,4 TestHost Rd,Chino Hills, CA,91709,200,250
