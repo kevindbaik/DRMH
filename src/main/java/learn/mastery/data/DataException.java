@@ -8,8 +8,5 @@ public class DataException extends Throwable {
     public DataException(Throwable cause) {
         super();
     }
-
-    public DataException(String message, Throwable cause) {
-        super();
-    }
+    
 }
