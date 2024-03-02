@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2633c8ee-c60a-403d-95bb-f5b6ecdedfe7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/learn/mastery/data/DataException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/learn/mastery/data/DataException.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +50,7 @@
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.java in mastery">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="mastery" />
@@ -98,8 +99,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.java in mastery" />
         <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.java in mastery" />
         <item itemvalue="JUnit.mastery in mastery" />
         <item itemvalue="JUnit.ReservationServiceTest" />
         <item itemvalue="JUnit.domain in mastery" />
