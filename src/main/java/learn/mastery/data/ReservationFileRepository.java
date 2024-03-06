@@ -126,7 +126,7 @@ public class ReservationFileRepository implements ReservationRepository {
                 writer.newLine();
             }
         } catch (IOException e) {
-            throw new DataException("Could not write reservations to file: " + path, e);
+
         }
     }
 
