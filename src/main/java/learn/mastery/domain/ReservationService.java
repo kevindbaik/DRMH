@@ -205,20 +205,48 @@ public class ReservationService {
         return day == DayOfWeek.SATURDAY || day == DayOfWeek.SUNDAY;
     }
 
-    private boolean isReservationDateValid(Reservation reservation) {
-        List<Reservation> existingReservations = reservationRepository.findByHostId(reservation.getHost().getId());
-        return existingReservations.stream().noneMatch(existing ->
-                (reservation.getStartDate().isBefore(existing.getEndDate()) || reservation.getStartDate().isEqual(existing.getEndDate())) &&
-                        (reservation.getEndDate().isAfter(existing.getStartDate()) || reservation.getEndDate().isEqual(existing.getStartDate())));
+    private boolean isReservationDateValid(Reservation newReservation) {
+        List<Reservation> existingReservations = reservationRepository.findByHostId(newReservation.getHost().getId());
+
+        for (Reservation existingReservation : existingReservations) {
+            boolean isStartBeforeOrOnExistingEnd = newReservation.getStartDate().isBefore(existingReservation.getEndDate())
+                    || newReservation.getStartDate().isEqual(existingReservation.getEndDate());
+
+            boolean isEndAfterOrOnExistingStart = newReservation.getEndDate().isAfter(existingReservation.getStartDate())
+                    || newReservation.getEndDate().isEqual(existingReservation.getStartDate());
+
+            if (isStartBeforeOrOnExistingEnd && isEndAfterOrOnExistingStart) {
+                // this means new reservation overlaps with an existing reservation
+                return false;
+            }
+        }
+
+        return true;
     }
 
-    private boolean isReservationDateValidForUpdate(Reservation reservation, Integer updatingReservationId) {
-        List<Reservation> existingReservations = reservationRepository.findByHostId(reservation.getHost().getId());
-        return existingReservations.stream()
-                .filter(existing -> existing.getId() != updatingReservationId)
-                .noneMatch(existing ->
-                        (reservation.getStartDate().isBefore(existing.getEndDate()) || reservation.getStartDate().isEqual(existing.getEndDate())) &&
-                                (reservation.getEndDate().isAfter(existing.getStartDate()) || reservation.getEndDate().isEqual(existing.getStartDate())));
+
+    private boolean isReservationDateValidForUpdate(Reservation newReservation, Integer updatingReservationId) {
+        List<Reservation> existingReservations = reservationRepository.findByHostId(newReservation.getHost().getId());
+
+        for (Reservation existingReservation : existingReservations) {
+            // skip the reservation being updated
+            if (existingReservation.getId() == updatingReservationId) {
+                continue;
+            }
+
+            boolean isStartBeforeOrOnExistingEnd = newReservation.getStartDate().isBefore(existingReservation.getEndDate())
+                    || newReservation.getStartDate().isEqual(existingReservation.getEndDate());
+
+            boolean isEndAfterOrOnExistingStart = newReservation.getEndDate().isAfter(existingReservation.getStartDate())
+                    || newReservation.getEndDate().isEqual(existingReservation.getStartDate());
+
+            if (isStartBeforeOrOnExistingEnd && isEndAfterOrOnExistingStart) {
+                // this means new/updated reservation overlaps with another existing reservation
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private boolean isDateRangeValid(Reservation updatedReservation, Reservation existingReservation) {
