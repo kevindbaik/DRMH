@@ -170,6 +170,7 @@ public class Controller {
         LocalDate newEndDate = view.readDateWithDefault("Enter new end date (MM/dd/yyyy) [" +
                         reservationToEdit.getEndDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")) + "]: ",
                 reservationToEdit.getEndDate());
+
         reservationToEdit.setStartDate(newStartDate);
         reservationToEdit.setEndDate(newEndDate);
 
@@ -230,8 +231,6 @@ public class Controller {
         }
     }
 
-    // my helper function to find a reservation by id. i know this should be in service, but i only need it for one small purpose.
-    // in the future i will put in service!
     private Reservation findReservationById(List<Reservation> reservations, int reservationId) {
         for (Reservation reservation : reservations) {
             if (reservation.getId() == reservationId) {

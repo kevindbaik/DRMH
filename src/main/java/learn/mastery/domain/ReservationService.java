@@ -183,7 +183,6 @@ public class ReservationService {
 
 
     // HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS
-
     public BigDecimal calculateTotal(LocalDate startDate, LocalDate endDate, Host host) {
         BigDecimal total = BigDecimal.ZERO;
         LocalDate date = startDate;
@@ -196,7 +195,6 @@ public class ReservationService {
             }
             date = date.plusDays(1);
         }
-
         return total;
     }
 

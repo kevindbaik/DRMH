@@ -7,7 +7,6 @@ import java.io.*;
 import java.math.BigDecimal;
 import java.nio.file.*;
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -43,7 +42,7 @@ public class ReservationFileRepository implements ReservationRepository {
                         reservations.add(reservation);
                 }
             }
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
         return reservations;
     }
