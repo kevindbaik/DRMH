@@ -1,14 +1,14 @@
 # Dont-Wreck-My-House
-Welcome to "Don't Wreck My House" - your go-to Java application for managing guest accommodations akin to the services provided by Airbnb. This application simplifies the process of pairing guests with hosts, ensuring that finding the perfect place to stay is as smooth as a breeze. Whether you're an accommodation administrator looking to manage reservations efficiently or you're learning the nuances of Java Fundamentals through a real-world application, you've come to the right place!
+Welcome to "Don't Wreck My House!" A Java application for managing guest accommodations akin to the services provided by Airbnb. This application simplifies the process of pairing guests with hosts, ensuring that finding the perfect place to stay is as smooth as a breeze. Whether you're an accommodation administrator looking to manage reservations efficiently or you're learning the nuances of Java Fundamentals through a real-world application, you've come to the right place!
 
 #Overview
-"Don't Wreck My House" is intended to provide a seamless interface for accommodation admins to manage reservations. From viewing existing bookings to creating new ones, editing details, or canceling future reservations, this application equips you with everything you need to ensure your guests have a pleasant stay without any hiccups.
+This program is intended to provide a seamless interface for accommodation admins to manage reservations. From viewing existing bookings to creating new ones, editing details, or canceling future reservations, this application equips you with everything you need to ensure your guests have a pleasant stay without any hiccups.
 
 # Current Features
-View Existing Reservations: Effortlessly browse through all the reservations associated with a host.
-Create Reservations: Pair guests with hosts and book accommodations for specific dates, provided the chosen location is available.
-Edit Reservations: Need to change the booking details? No problem! Edit the reservation details as needed.
-Cancel Reservations: Plans change, and when they do, cancelling future reservations is just a few clicks away.
+- View Existing Reservations: Effortlessly browse through all the reservations associated with a host.
+- Create Reservations: Pair guests with hosts and book accommodations for specific dates, provided the chosen location is available.
+- Edit Reservations: Need to change the booking details? No problem! Edit the reservation details as needed.
+- Cancel Reservations: Plans change, and when they do, cancelling future reservations is just a few clicks away.
 
 # Technical Details
 - Maven Project: This is a Maven-based project, ensuring easy management of dependencies and project lifecycle.
