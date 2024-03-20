@@ -103,7 +103,6 @@ public class ReservationFileRepository implements ReservationRepository {
     }
 
     // HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS
-    // GET FILE PATH FROM HOSTID
     private String getFilePath(String hostId) {
         return Paths.get(directory, hostId + ".csv").toString();
     }

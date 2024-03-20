@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Response {
 
-    private ArrayList<String> messages = new ArrayList<>();
+    private final ArrayList<String> messages = new ArrayList<>();
 
     public boolean isSuccess() {
-        return messages.size() == 0;
+        return messages.isEmpty();
     }
 
     public List<String> getErrorMessages() {
