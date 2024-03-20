@@ -1,5 +1,5 @@
 # Dont-Wreck-My-House
-Welcome to "Don't Wreck My House!" A Java application for managing guest accommodations akin to the services provided by Airbnb. This application simplifies the process of pairing guests with hosts, ensuring that finding the perfect place to stay is as smooth as a breeze. Whether you're an accommodation administrator looking to manage reservations efficiently or you're learning the nuances of Java Fundamentals through a real-world application, you've come to the right place!
+Welcome to "Don't Wreck My House" a Java application for managing guest accommodations akin to the services provided by Airbnb. This application simplifies the process of pairing guests with hosts, ensuring that finding the perfect place to stay is as smooth as a breeze. Whether you're an accommodation administrator looking to manage reservations efficiently or you're learning the nuances of Java Fundamentals through a real-world application, you've come to the right place!
 
 #Overview
 This program is intended to provide a seamless interface for accommodation admins to manage reservations. From viewing existing bookings to creating new ones, editing details, or canceling future reservations, this application equips you with everything you need to ensure your guests have a pleasant stay without any hiccups.
