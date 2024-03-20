@@ -30,7 +30,7 @@ This program is intended to provide a seamless interface for accommodation admin
 
 # Usage
 To start the application, run the following command in your terminal:
-- java -jar path/to/your/compiled/jarfile.jar
+java -jar path/to/your/compiled/jarfile.jar
 
 Navigating the application is straightforward:
 You'll be greeted by the Main Menu upon startup. Use the numbers [0-4] to navigate through the options.
