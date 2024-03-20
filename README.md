@@ -12,7 +12,7 @@ This program is intended to provide a seamless interface for accommodation admin
 
 # Technical Details
 - Maven Project: This is a Maven-based project, ensuring easy management of dependencies and project lifecycle.
-- Spring Dependency Injection: Configured with XML or annotations for managing components and services.
+- Spring Dependency Injection: Configured with XML for managing components and services.
 - Data Representation: Uses BigDecimal for financial calculations and LocalDate for date management. All data is represented through models within the application.
 - Unique Identifiers: Reservation identifiers are unique per host. The combination of a reservation identifier and a host identifier uniquely identifies a reservation.
 
