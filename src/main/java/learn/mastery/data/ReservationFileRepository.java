@@ -123,7 +123,7 @@ public class ReservationFileRepository implements ReservationRepository {
                 writer.write(line);
                 writer.newLine();
             }
-        } catch (IOException e) {
+        } catch (IOException ignored) {
 
         }
     }

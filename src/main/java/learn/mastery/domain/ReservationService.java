@@ -30,9 +30,9 @@ public class ReservationService {
     }
 
     public Result<Reservation> makeReservation(Reservation reservation) throws IOException {
-        Result<Reservation> result = new Result<>();
+        Result<Reservation> result = validateReservation(reservation, false);
 
-        if (!validateReservation(reservation, result, false)) {
+        if (!result.isSuccess()) {
             return result;
         }
 
@@ -50,11 +50,12 @@ public class ReservationService {
     }
 
     public Result<Reservation> updateReservation(Reservation updatedReservation) throws DataException, IOException {
-        Result<Reservation> result = new Result<>();
+        Result<Reservation> result = validateReservation(updatedReservation, false);
 
-        if (!validateReservation(updatedReservation, result, true)) {
+        if (!result.isSuccess()) {
             return result;
         }
+
 
         List<Reservation> existingReservations = reservationRepository.findByHostId(updatedReservation.getHost().getId());
         boolean exists = existingReservations.stream()
@@ -125,61 +126,47 @@ public class ReservationService {
 
     // VALIDATIONS VALIDATIONS VALIDATIONS VALIDATIONS VALIDATIONS VALIDATIONS VALIDATIONS VALIDATIONS
 
-    private boolean validateReservation(Reservation reservation, Result<Reservation> result, boolean isUpdate) throws IOException {
-        boolean isValid = true;
+    private Result<Reservation> validateReservation(Reservation reservation, boolean isUpdate) throws IOException {
+        Result<Reservation> result = new Result<>();
 
         if (reservation.getGuest() == null) {
             result.addErrorMessage("Guest is required.");
-            isValid = false;
-            return isValid;
         }
 
         if (reservation.getHost() == null) {
             result.addErrorMessage("Host is required.");
-            isValid = false;
-            return isValid;
         }
 
         if (reservation.getStartDate() == null || reservation.getEndDate() == null) {
             result.addErrorMessage("Start and end dates are required.");
-            isValid = false;
-            return isValid;
+        } else if (!reservation.getStartDate().isBefore(reservation.getEndDate())) {
+            result.addErrorMessage("Start date must come before end date.");
+        } else if (!isUpdate && !isReservationDateValid(reservation)) {
+        }
+
+        if (reservation.getStartDate() != null && !reservation.getStartDate().isAfter(LocalDate.now())) {
+            result.addErrorMessage("Start date must be in the future.");
         }
 
         if (reservation.getGuest() != null && guestRepository.findByEmail(reservation.getGuest().getEmail()) == null) {
             result.addErrorMessage("Guest does not exist.");
-            isValid = false;
-            return isValid;
         }
 
         if (reservation.getHost() != null && hostRepository.findByEmail(reservation.getHost().getEmail()) == null) {
             result.addErrorMessage("Host does not exist.");
-            isValid = false;
-            return isValid;
         }
 
-        if (!reservation.getStartDate().isBefore(reservation.getEndDate())) {
-            result.addErrorMessage("Start date must come before end date.");
-            isValid = false;
-            return isValid;
+        if (!isReservationDateValid(reservation)) {
+            result.addErrorMessage("Reservation dates overlap with an existing reservation.");
         }
 
-        if (!isUpdate) {
-            if (!isReservationDateValid(reservation)) {
-                result.addErrorMessage("Reservation dates overlap with an existing reservation.");
-                isValid = false;
-                return isValid;
-            }
+        if (result.isSuccess()) {
+            result.setPayload(reservation);
         }
 
-        if (!reservation.getStartDate().isAfter(LocalDate.now())) {
-            result.addErrorMessage("Start date must be in the future.");
-            isValid = false;
-            return isValid;
-        }
-
-        return isValid;
+        return result;
     }
+
 
 
     // HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS HELPERS
