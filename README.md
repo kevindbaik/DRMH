@@ -1,8 +1,5 @@
-# Dont-Wreck-My-House
-Welcome to "Don't Wreck My House!" A Java application for managing guest accommodations akin to the services provided by Airbnb. This application simplifies the process of pairing guests with hosts, ensuring that finding the perfect place to stay is as smooth as a breeze. Whether you're an accommodation administrator looking to manage reservations efficiently or you're learning the nuances of Java Fundamentals through a real-world application, you've come to the right place!
-
-#Overview
-This program is intended to provide a seamless interface for accommodation admins to manage reservations. From viewing existing bookings to creating new ones, editing details, or canceling future reservations, this application equips you with everything you need to ensure your guests have a pleasant stay without any hiccups.
+# Overview
+A Java application for managing guest accommodations similar to the services provided by Airbnb. This program is intended to provide a seamless interface for accommodation admins to manage reservations. From viewing existing bookings to creating new ones, editing details, or canceling future reservations, this application equips you with everything you need to ensure your guests have a pleasant stay without any hiccups.
 
 # Current Features
 - View Existing Reservations: Effortlessly browse through all the reservations associated with a host.
@@ -12,7 +9,7 @@ This program is intended to provide a seamless interface for accommodation admin
 
 # Technical Details
 - Maven Project: This is a Maven-based project, ensuring easy management of dependencies and project lifecycle.
-- Spring Dependency Injection: Configured with XML or annotations for managing components and services.
+- Spring Dependency Injection: Configured with XML for managing components and services.
 - Data Representation: Uses BigDecimal for financial calculations and LocalDate for date management. All data is represented through models within the application.
 - Unique Identifiers: Reservation identifiers are unique per host. The combination of a reservation identifier and a host identifier uniquely identifies a reservation.
 
